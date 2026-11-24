@@ -125,7 +125,7 @@ def prepare(workflow_id: str, request: PrepareRequest):
                    (json.dumps(mask_sensitive(request.applicant)), now, workflow_id))
         audit(db, workflow_id, "prepare", {"proposal_count": len(proposals)}, row["url"], "pending")
     return {"workflow_id": workflow_id, "status": "approval", "proposals": proposals,
-            "warning": "No fields are submitted. Human approval is required."}
+            "warning": "No application submission occurs. Human approval is required."}
 
 
 @app.post("/api/workflows/{workflow_id}/approve")

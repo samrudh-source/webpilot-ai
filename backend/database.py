@@ -24,27 +24,15 @@ def db_session():
 
 def init_db():
     with db_session() as db:
-        db.executescript(
-            """
-            CREATE TABLE IF NOT EXISTS workflows (
-                id TEXT PRIMARY KEY,
-                title TEXT NOT NULL,
-                url TEXT NOT NULL,
-                status TEXT NOT NULL,
-                applicant TEXT NOT NULL,
-                result TEXT,
-                created_at TEXT NOT NULL,
-                updated_at TEXT NOT NOT NULL
-            );
-            CREATE TABLE IF NOT EXISTS audit_logs (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                workflow_id TEXT,
-                action TEXT NOT NULL,
-                details TEXT,
-                source_url TEXT,
-                status TEXT NOT NULL,
-                timestamp TEXT NOT NULL
-            );
-            """
+        db.execute(
+            "CREATE TABLE IF NOT EXISTS workflows "
+            "(id TEXT PRIMARY KEY, title TEXT NOT NULL, url TEXT NOT NULL, "
+            "status TEXT NOT NULL, applicant TEXT NOT NULL, result TEXT, "
+            "created_at TEXT NOT NULL, updated_at TEXT NOT NULL)"
         )
-
+        db.execute(
+            "CREATE TABLE IF NOT EXISTS audit_logs "
+            "(id INTEGER PRIMARY KEY AUTOINCREMENT, workflow_id TEXT, "
+            "action TEXT NOT NULL, details TEXT, source_url TEXT, "
+            "status TEXT NOT NULL, timestamp TEXT NOT NULL)"
+        )

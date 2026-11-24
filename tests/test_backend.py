@@ -1,12 +1,7 @@
-import os
-import tempfile
-
 import pytest
 from fastapi.testclient import TestClient
 
-os.chdir(tempfile.mkdtemp())
-
-from backend.database import DB_PATH, init_db
+from backend.database import init_db
 from backend.main import app
 from backend.security import mask_sensitive, validate_action, validate_url
 from backend.browser_service import propose_form_fill
