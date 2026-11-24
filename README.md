@@ -2,7 +2,7 @@
 
 **Find the Rule. Prepare the Form. Keep the Human in Control.**
 
-WebPilot AI is a local AI-powered browser automation MVP for discovering website requirements, extracting evidence, preparing application forms, and requiring human approval before permitted browser actions. Its primary demo is a fictional scholarship portal served locally.
+WebPilot AI is an AI-powered browser automation agent that discovers eligibility rules, extracts verifiable evidence, and prepares application forms with human-controlled execution. Its local demonstration uses a fictional Karnataka scholarship portal.
 
 ## Implemented status
 - React/Vite/TypeScript enterprise dashboard with 12 routed screens
